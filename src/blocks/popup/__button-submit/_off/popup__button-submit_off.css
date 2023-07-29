@@ -1,0 +1,24 @@
+.popup__button-submit_off {
+  opacity: 0.2;
+  margin-top: 18px;
+  margin-left: 36px;
+  margin-bottom: 0;
+  width: 358px;
+  height: 50px;
+  left: 461px;
+  top: 438px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  background:
+    rgba(0, 0, 0, 1);
+  border-radius: 2px;
+  border: 0;
+  cursor: default;
+}
+
+.popup__button-submit_off:hover {
+  opacity: 0;
+}

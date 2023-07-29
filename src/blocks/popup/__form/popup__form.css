@@ -1,0 +1,12 @@
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 37px;
+  /* justify-content: space-between; */
+}
+
+@media screen and (max-width: 550px) {
+  .popup__form {
+    margin-bottom: 25px;
+  }
+}

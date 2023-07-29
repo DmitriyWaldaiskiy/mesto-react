@@ -1,0 +1,15 @@
+.popup__content-image {
+  position: relative;
+  width: 433px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 15%);
+}
+
+@media screen and (max-width: 550px) {
+  .popup__content {
+    width: 282px;
+  }
+}
