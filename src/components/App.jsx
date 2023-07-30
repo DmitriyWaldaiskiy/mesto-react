@@ -42,35 +42,92 @@ function App() {
     <div className='page'>
       <Header />
 
-      <Main onEditProfile={handleEditProfileClick} onEditAvatar={handleEditAvatarClick} onAddPlace={handleAddPlaceClick} onCardClick={handleCartClick} />
+      <Main
+        onEditProfile={handleEditProfileClick}
+        onEditAvatar={handleEditAvatarClick}
+        onAddPlace={handleAddPlaceClick}
+        onCardClick={handleCartClick}
+      />
 
       <Footer />
 
-      <PopupWithForm name='profile__button' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm
+        name='profile__button'
+        title='Редактировать профиль'
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}>
         <label className='popup__input-element'>
-          <input id='place' name='place' type='text' placeholder='Название' className='popup__input popup__input_type_place' minLength={2} maxLength={30} required='' />
+          <input
+            id='place'
+            name='place'
+            type='text'
+            placeholder='Название'
+            className='popup__input popup__input_type_place'
+            minLength={2}
+            maxLength={30}
+            required=''
+          />
           <span className='place-error popup__input-error' />
         </label>
         <label className='popup__input-element'>
-          <input id='link' name='link' type='url' placeholder='Ссылка на картинку' className='popup__input popup__input_type_link' required='' />
+          <input
+            id='link'
+            name='link'
+            type='url'
+            placeholder='Ссылка на картинку'
+            className='popup__input popup__input_type_link'
+            required=''
+          />
           <span className='link-error popup__input-error' />
         </label>
       </PopupWithForm>
 
-      <PopupWithForm name='popup_add' title='Новое место' titleButton='Создать' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm
+        name='popup_add'
+        title='Новое место'
+        titleButton='Создать'
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}>
         <label className='popup__input-element'>
-          <input id='place' name='place' type='text' placeholder='Название' className='popup__input popup__input_type_place' minLength={2} maxLength={30} required />
+          <input
+            id='place'
+            name='place'
+            type='text'
+            placeholder='Название'
+            className='popup__input popup__input_type_place'
+            minLength={2}
+            maxLength={30}
+            required
+          />
           <span className='place-error popup__input-error' />
         </label>
         <label className='popup__input-element'>
-          <input id='link' name='link' type='url' placeholder='Ссылка на картинку' className='popup__input popup__input_type_link' required />
+          <input
+            id='link'
+            name='link'
+            type='url'
+            placeholder='Ссылка на картинку'
+            className='popup__input popup__input_type_link'
+            required
+          />
           <span className='link-error popup__input-error' />
         </label>
       </PopupWithForm>
 
-      <PopupWithForm name='popup-avatar-edit' title='Обновить аватар' isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm
+        name='popup-avatar-edit'
+        title='Обновить аватар'
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}>
         <label className='popup__input-element'>
-          <input id='avatar' name='avatar' type='url' placeholder='Ссылка на картинку' className='popup__input popup__input_type_avatar' required />
+          <input
+            id='avatar'
+            name='avatar'
+            type='url'
+            placeholder='Ссылка на картинку'
+            className='popup__input popup__input_type_avatar'
+            required
+          />
           <span className='avatar-error popup__input-error' />
         </label>
       </PopupWithForm>

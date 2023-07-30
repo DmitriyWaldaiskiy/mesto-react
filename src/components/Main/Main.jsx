@@ -10,13 +10,15 @@ export default function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardCl
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    Promise.all([api.getProfileInfo(), api.getCards()]).then(([userData, cardData]) => {
-      setUserName(userData.name);
-      setUserDescription(userData.about);
-      setUserAvatar(userData.avatar);
-      cardData.forEach((data) => (data.myid = userData._id));
-      setCards(cardData);
-    });
+    Promise.all([api.getProfileInfo(), api.getCards()])
+      .then(([userData, cardData]) => {
+        setUserName(userData.name);
+        setUserDescription(userData.about);
+        setUserAvatar(userData.avatar);
+        cardData.forEach((data) => (data.myid = userData._id));
+        setCards(cardData);
+      })
+      .catch((error) => console.error(`Ошибка ${error}`));
   }, []);
 
   return (
@@ -28,7 +30,11 @@ export default function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardCl
         <div className='profile__info'>
           <div className='profile__info-head'>
             <h1 className='profile__title'>{userName}</h1>
-            <button type='button' className='profile__button' aria-label='Кнопка редактирования профиля' onClick={onEditProfile}>
+            <button
+              type='button'
+              className='profile__button'
+              aria-label='Кнопка редактирования профиля'
+              onClick={onEditProfile}>
               <img src={logo} alt='Карандаш' />
             </button>
           </div>
