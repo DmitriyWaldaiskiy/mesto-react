@@ -15,7 +15,6 @@ export default function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardCl
         setUserName(userData.name);
         setUserDescription(userData.about);
         setUserAvatar(userData.avatar);
-        cardData.forEach((data) => (data.myid = userData._id));
         setCards(cardData);
       })
       .catch((error) => console.error(`Ошибка ${error}`));

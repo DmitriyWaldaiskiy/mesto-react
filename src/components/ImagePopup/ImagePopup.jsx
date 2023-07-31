@@ -1,6 +1,6 @@
 export default function ImagePopup({ card, isOpen, onClose }) {
   return (
-    <div className={`popup popup_image-zoom ${isOpen && 'popup_opened'}`}>
+    <div className={`popup popup_image-zoom ${card.isOpen && 'popup_opened'}`}>
       <div className='popup__container'>
         <button
           type='button'
@@ -10,10 +10,10 @@ export default function ImagePopup({ card, isOpen, onClose }) {
         <div className='popup__content-image'>
           <img
             className='popup__image'
-            src={card.link ? card.link : '#'}
-            alt={card.name ? `Фотография ${card.name}` : '#'}
+            src={card ? card.link : '#'}
+            alt={card ? card.name : ''}
           />
-          <p className='popup__caption-image'>{`Фотография ${card.name}`}</p>
+          <p className='popup__caption-image'>{card ? card.name : ''}</p>
         </div>
       </div>
     </div>

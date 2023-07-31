@@ -10,13 +10,12 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsisEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
-  const [isPopupImage, setIsPopupImage] = useState(false);
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsisEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setIsPopupImage(false);
+    // setIsPopupImage(false);
   }
 
   function handleEditProfileClick() {
@@ -35,7 +34,6 @@ function App() {
 
   function handleCartClick(card) {
     setSelectedCard(card);
-    setIsPopupImage(true);
   }
 
   return (
@@ -61,7 +59,7 @@ function App() {
             id='place'
             name='place'
             type='text'
-            placeholder='Название'
+            placeholder='Введите имя'
             className='popup__input popup__input_type_place'
             minLength={2}
             maxLength={30}
@@ -74,7 +72,7 @@ function App() {
             id='link'
             name='link'
             type='url'
-            placeholder='Ссылка на картинку'
+            placeholder='Расскажите о себе'
             className='popup__input popup__input_type_link'
             required=''
           />
@@ -132,7 +130,7 @@ function App() {
         </label>
       </PopupWithForm>
 
-      <ImagePopup card={selectedCard} isOpen={isPopupImage} onClose={closeAllPopups} />
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
       <PopupWithForm name='popup-delete' title='Вы уверены?' titleButton='Да' />
     </div>
