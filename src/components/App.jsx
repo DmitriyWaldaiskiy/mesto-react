@@ -9,13 +9,13 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsisEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState({});
+  const [selectedCard, setSelectedCard] = useState(null);
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsisEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    // setIsPopupImage(false);
+    setSelectedCard(false);
   }
 
   function handleEditProfileClick() {
