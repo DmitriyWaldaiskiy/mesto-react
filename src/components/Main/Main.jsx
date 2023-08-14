@@ -3,7 +3,13 @@ import logo from '../../images/button.png';
 import api from '../../utils/api';
 import Card from '../Card/Card.jsx';
 
-export default function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick }) {
+export default function Main({
+  onEditProfile,
+  onEditAvatar,
+  onAddPlace,
+  onCardClick,
+  onDelete,
+}) {
   const [userName, setUserName] = useState('');
   const [userDescription, setUserDescription] = useState('');
   const [userAvatar, setUserAvatar] = useState('');
@@ -45,7 +51,7 @@ export default function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardCl
         {cards.map((data) => {
           return (
             <div className='elements__list' key={data._id}>
-              <Card card={data} onCardClick={onCardClick} />
+              <Card card={data} onCardClick={onCardClick} onDelete={onDelete} />
             </div>
           );
         })}

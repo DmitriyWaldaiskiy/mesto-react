@@ -1,7 +1,7 @@
-export default function Card({ card, onCardClick }) {
+export default function Card({ card, onCardClick, onDelete }) {
   return (
     <article className='element'>
-      <button className='element__button-delete' type='button' />
+      <button className='element__button-delete' type='button' onClick={onDelete} />
       <img
         className='element__images'
         src={card.link}
@@ -12,7 +12,7 @@ export default function Card({ card, onCardClick }) {
         <h2 className='element__heading'>{card.name}</h2>
         <div>
           <button type='button' className='element__like' />
-          <span className='element__counter' />
+          <span className='element__counter'>{card.likes.length}</span>
         </div>
       </div>
     </article>

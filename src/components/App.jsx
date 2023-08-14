@@ -9,13 +9,15 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsisEditAvatarPopupOpen] = useState(false);
+  const [isDeletePopupOpen, setIsisDeletePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsisEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setSelectedCard(false);
+    setIsisDeletePopupOpen(false);
+    setSelectedCard(null);
   }
 
   function handleEditProfileClick() {
@@ -30,7 +32,9 @@ function App() {
     setIsAddPlacePopupOpen(true);
   }
 
-  // function handleDeleteClick() {}
+  function handleDeleteClick() {
+    setIsisDeletePopupOpen(true);
+  }
 
   function handleCartClick(card) {
     setSelectedCard(card);
@@ -45,6 +49,7 @@ function App() {
         onEditAvatar={handleEditAvatarClick}
         onAddPlace={handleAddPlaceClick}
         onCardClick={handleCartClick}
+        onDelete={handleDeleteClick}
       />
 
       <Footer />
@@ -132,7 +137,13 @@ function App() {
 
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
-      <PopupWithForm name='popup-delete' title='Вы уверены?' titleButton='Да' />
+      <PopupWithForm
+        name='popup-delete'
+        title='Вы уверены?'
+        titleButton='Да'
+        isOpen={isDeletePopupOpen}
+        onClose={closeAllPopups}
+      />
     </div>
   );
 }

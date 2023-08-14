@@ -11,11 +11,13 @@ export default function PopupWithForm({
       <div className='popup__container'>
         <button type='button' className='popup__close-icon' onClick={onClose} />
         <div className='popup__content'>
-          <h2 className='popup__head'>{title}</h2>
-          <form
-            name='profile-form'
-            className='popup__form profileForm'
-            noValidate>
+          <h2
+            className={`popup__head ${
+              name === 'popup-delete' ? 'popup__head_type_head-delete-delete' : ''
+            }`}>
+            {title}
+          </h2>
+          <form name='profile-form' className='popup__form profileForm' noValidate>
             {children}
             <button type='submit' className='popup__button-submit'>
               {titleButton || 'Сохранить'}
