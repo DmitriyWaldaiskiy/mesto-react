@@ -1,7 +1,9 @@
-export default function ImagePopup({ card, isOpen, onClose }) {
+export default function ImagePopup({ card, onClose }) {
   return (
-    <div className={`popup popup_image-zoom ${card ? 'popup_opened' : ''}`}>
-      <div className='popup__container'>
+    <div
+      className={`popup popup_image-zoom ${card ? 'popup_opened' : ''}`}
+      onClick={onClose}>
+      <div className='popup__container' onClick={(evt) => evt.stopPropagation()}>
         <button
           type='button'
           className='popup__close-icon close-image'

@@ -1,0 +1,6 @@
+.popup__button-submit_loading {
+  background-image: url(../../../../images/loading-loading-forever.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

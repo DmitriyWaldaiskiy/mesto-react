@@ -5,10 +5,15 @@ export default function PopupWithForm({
   children,
   isOpen,
   onClose,
+  onSubmit,
+  isSending,
+  isValid = true,
 }) {
   return (
-    <div className={`popup popup_type_${name} ${isOpen && 'popup_opened'}`}>
-      <div className='popup__container'>
+    <div
+      className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`}
+      onClick={onClose}>
+      <div className='popup__container' onClick={(evt) => evt.stopPropagation()}>
         <button type='button' className='popup__close-icon' onClick={onClose} />
         <div className='popup__content'>
           <h2
@@ -17,10 +22,15 @@ export default function PopupWithForm({
             }`}>
             {title}
           </h2>
-          <form name='profile-form' className='popup__form profileForm' noValidate>
+          <form name={name} className='popup__form' noValidate onSubmit={onSubmit}>
             {children}
-            <button type='submit' className='popup__button-submit'>
-              {titleButton || 'Сохранить'}
+            <button
+              type='submit'
+              className={`popup__button-submit ${
+                isSending ? 'popup__button-submit_loading' : ''
+              } ${isValid ? '' : 'popup__button-submit_off'}`}
+              disabled={isSending}>
+              {isSending ? '' : titleButton || 'Сохранить'}
             </button>
           </form>
         </div>
