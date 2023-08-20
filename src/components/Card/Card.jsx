@@ -7,7 +7,7 @@ export default function Card({ card, onCardClick, onDelete }) {
 
   return (
     <article className='element'>
-      {currentUser === card.owner._id && (
+      {currentUser._id === card.owner._id && (
         <button
           className='element__button-delete'
           type='button'

@@ -12,10 +12,13 @@ export default function ButtonLike({ likes, myid, cardid }) {
 
   function handleLike() {
     if (isLike) {
-      api.deleteLike(cardid).then((res) => {
-        setIsLike(false);
-        setCount(res.likes.length);
-      });
+      api
+        .deleteLike(cardid)
+        .then((res) => {
+          setIsLike(false);
+          setCount(res.likes.length);
+        })
+        .catch((err) => console.error(`Ошибка при установке лайка ${err}`));
     } else {
       api
         .addLike(cardid)
